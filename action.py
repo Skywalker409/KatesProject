@@ -20,5 +20,5 @@ def RGB(R, G,B):
     Blue(B)
 
 subprocess.run(["sudo", "pigpiod"])
-RGB(0,255,0)
+RGB(0,0,255)
 
