@@ -20,5 +20,8 @@ def RGB(R, G,B):
     Blue(B)
 
 subprocess.run(["sudo", "pigpiod"])
-RGB(0,0,255)
+for value in range(0, 255, 5):
+    RGB(0,0,value)
+
+
 
