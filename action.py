@@ -35,4 +35,6 @@ subprocess.run(["sudo", "pigpiod"])
 time.sleep(0.5)
 
 # Set RGB color to red
-RGB(255, 0, 0)
+for value in range(0, 255, 5):
+    RGB(0, {value}, {255-value})
+    time.sleep(0.1)
