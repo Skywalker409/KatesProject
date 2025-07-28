@@ -51,7 +51,7 @@ while True:
 
     # Run the script
     print("Running action.py...\n")
-    subprocess.run(["python3", action_script])
+    subprocess.run(["python", action_script])
 
     # Wait before next check
     time.sleep(5)
