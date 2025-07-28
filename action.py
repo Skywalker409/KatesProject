@@ -1,9 +1,11 @@
 import os
 import subprocess
 import time
-#Red:  pigs p 17 255
-#Green pigs p 22 255
-#Blue  pigs p 24 255
+
+# === GPIO Pin Mapping ===
+# Red   = GPIO 24
+# Green = GPIO 23
+# Blue  = GPIO 25
 
 def Red(value):
     subprocess.run(["pigs", "p", "24", str(value)])
@@ -14,14 +16,23 @@ def Green(value):
 def Blue(value):
     subprocess.run(["pigs", "p", "25", str(value)])
 
-def RGB(R, G,B):
+def RGB(R, G, B):
     Red(R)
     Green(G)
     Blue(B)
 
+# === Restart pigpiod safely ===
+# Kill existing pigpiod (if any)
+subprocess.run(["sudo", "killall", "pigpiod"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+# Wait a bit to ensure it's fully stopped
+time.sleep(0.5)
+
+# Start pigpiod
 subprocess.run(["sudo", "pigpiod"])
 
-RGB(255,0,0)
+# Wait for pigpiod to initialize
+time.sleep(0.5)
 
-
-
+# Set RGB color to red
+RGB(0, 0, 255)
