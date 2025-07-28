@@ -20,10 +20,8 @@ def RGB(R, G,B):
     Blue(B)
 
 subprocess.run(["sudo", "pigpiod"])
-while True:
-    for value in range(0, 255, 5):
-        RGB(0,0,value)
-        time.sleep(0.05)
+
+RGB(0,0,0)
 
 
 
