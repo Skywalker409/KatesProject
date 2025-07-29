@@ -36,5 +36,5 @@ time.sleep(0.5)
 
 # Set RGB color to red
 for value in range(0, 255, 5):
-    RGB(value, 0, 0)
+    RGB(0, 0, 255)
     time.sleep(0.1)
